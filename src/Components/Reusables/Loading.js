@@ -10,7 +10,7 @@ export default function Loading() {
         'display': 'flex',
         'backgroundColor': 'rgba(0, 0, 0, .2)',
         'height': '100%',
-        'position': 'relative',
+        'position': 'absolute',
         'width': '100%',
         'zIndex': '100'
       }}>
@@ -23,7 +23,6 @@ export default function Loading() {
           'height': '10em',
           'width': 'auto',
           'margin': 'auto',
-          'padding': '4em'
         }}
       />
 
