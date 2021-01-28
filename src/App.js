@@ -1,9 +1,11 @@
 import React from 'react';
+import Timer, { restart } from './Components/Pages/Game/Timer.js'
 
 function App() {
   return (
     <div className="App">
-      <h1>Hi :)</h1>
+      <Timer/>
+      <button onClick={() => restart(5)}>Restart!</button>
     </div>
   );
 }
