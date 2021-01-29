@@ -1,11 +1,11 @@
 import React from 'react';
-import Timer, { restart } from './Components/Pages/Game/Timer.js'
+import Worker, { toggleCred } from './Components/Pages/Game/Worker.js'
 
 function App() {
   return (
     <div className="App">
-      <Timer duration={19} />
-      <button onClick={() => restart(5)}>Restart!</button>
+      <Worker econ={true} hr={true} sec={true} tech={true} />
+      <button onClick={() => toggleCred('tech')}>Toggle!</button>
     </div>
   );
 }

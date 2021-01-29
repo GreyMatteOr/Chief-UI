@@ -14,7 +14,7 @@ export default function Timer( props ) {
     setUpdateIds( [] )
   }
 
-  restart = ( duration ) => {
+  restart = ( duration = 30 ) => {
     clearUpdates()
     setFinish( gdate.advance().by( duration * second ) )
     setTimeLeft( duration )
