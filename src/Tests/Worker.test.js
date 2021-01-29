@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/extend-expect';
-import { act } from 'react-dom/test-utils';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import Worker from '../Components/Pages/Game/Worker.js';
 import { workerColors } from '../Styling/colors.js';
 
