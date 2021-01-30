@@ -33,7 +33,8 @@ export default function Worker (props) {
         'left': '0px',
         'top': '0px',
         'padding': '.125em',
-        'position': 'fixed'
+        'position': 'absolute',
+        'zIndex': 100
       }}
       > { getCreds() }</div>
   )
