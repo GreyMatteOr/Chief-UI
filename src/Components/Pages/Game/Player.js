@@ -1,36 +1,47 @@
+import { addWorker, removeWorker } from './workerFx.js';
 import { boardColors } from '../../../Styling/colors.js';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Worker from './Worker';
 
-let addWorker, removeWorker;
 export default function Player(props) {
   let { team } = props
   let [workers, setWorkers] = useState([])
+
   let displayPositions = {
     'Blue': ['bottom', 'right'],
     'Green': ['bottom', 'left'],
     'Red': ['top', 'left'],
     'Yellow': ['top', 'right']
   }
-  let [pos1, pos2] = displayPositions[team]
-
-  addWorker = (econ=false, hr=false, sec=false, tech=false) => {
-    setWorkers( [...workers, {econ,hr,sec,team,tech}])
-    console.log(workers)
-  }
+  let [pos1, pos2] = displayPositions[ team ]
 
   function displayWorkers() {
     return workers.map( ({econ, hr, sec, team, tech}, i) => {
-      return <Worker econ={econ} hr={hr} key={`${team}-${i}`} sec={sec} team={team} tech={tech} />
+      return (
+        <Worker
+          econ={econ}
+          hr={hr}
+          key={`${team}-${i}`}
+          sec={sec}
+          team={team}
+          tech={tech}
+        />
+      )
     })
   }
 
-  removeWorker = ( index = 0 ) => {
-    if (0 <= index && index < workers.length) {
-      workers.splice(index, 1)
-      setWorkers( [...workers] )
+  useEffect( () => {
+    addWorker[team] = (econ=false, hr=false, sec=false, tech=false) => {
+      setWorkers( [...workers, {econ,hr,sec,team,tech}] )
     }
-  }
+
+    removeWorker[team] = ( index = 0 ) => {
+      if (0 <= index && index < workers.length) {
+        workers.splice(index, 1)
+        setWorkers( [...workers] )
+      }
+    }
+  }, [] )
 
   return (
     <section
@@ -51,5 +62,3 @@ export default function Player(props) {
     </section>
   )
 }
-
-export { addWorker, removeWorker }

@@ -16,7 +16,7 @@ export default function Worker (props) {
 
   useEffect( () => {
     dragmove(node.current, node.current)
-  }, [] )
+  }, [node] )
 
   return (
     <div
