@@ -1,13 +1,23 @@
+let nextId = 0;
+
+export const getId = () => {
+  nextId++
+  return nextId;
+}
+
 export const addWorker = {
-  'Blue': null,
-  'Green': null,
-  'Red': null,
-  'Yellow': null
+  'Blue': () => {},
+  'Green': () => {},
+  'Red': () => {},
+  'Yellow': () => {}
 };
 
 export const removeWorker = {
-  'Blue': null,
-  'Green': null,
-  'Red': null,
-  'Yellow': null
+  'Blue': () => {},
+  'Green': () => {},
+  'Red': () => {},
+  'Yellow': () => {}
 };
+
+
+export const toggleBlip = {}

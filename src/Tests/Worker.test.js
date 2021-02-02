@@ -1,14 +1,17 @@
 import '@testing-library/jest-dom/extend-expect';
+import { act } from 'react-dom/test-utils';
 import { render, screen } from '@testing-library/react';
+import { toggleBlip } from '../Components/Pages/Game/workerFx.js';
 import Worker from '../Components/Pages/Game/Worker.js';
 import { workerColors } from '../Styling/colors.js';
 
+let creds = ['econ', 'hr', 'sec', 'tech'];
 describe('Worker', () => {
 
 
   it('should have no blips to start', () => {
 
-    render( <Worker />)
+    render( <Worker /> )
     let blips = screen.queryAllByTestId('blip')
 
     blips.forEach( blip => {
@@ -19,9 +22,10 @@ describe('Worker', () => {
 
   it('should be able to display each blip', () => {
 
-    render( <Worker econ={true} hr={true} sec={true} tech={true}/>)
-    let blips = screen.queryAllByTestId('blip')
+    render( <Worker id={1}/> )
+    creds.forEach( cred => act( () => toggleBlip[1]( cred ) ) )
 
+    let blips = screen.queryAllByTestId('blip')
     blips.forEach( blip => {
       expect( blip ).toHaveStyle('opacity: 1');
     })

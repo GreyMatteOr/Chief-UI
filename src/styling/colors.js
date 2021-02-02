@@ -14,7 +14,12 @@ export const credColors = {
 
 export const workerColors = {
   'Blue': '#547eff',
+  'BlueZone': '#1d2b56',
   'Green': '#58fc37',
+  'GreenZone': '#1b4911',
   'Red': '#f47764',
-  'Yellow': '#ffff00'
+  'RedZone': '#542a24',
+  'Yellow': '#ffff00',
+  'YellowZone': '#4f4f01',
+  'Zone': '#606060'
 }
