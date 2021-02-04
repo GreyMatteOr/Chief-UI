@@ -1,7 +1,8 @@
-import { addWorker, getId, removeWorker } from './workerFx.js';
+import { addWorker, removeWorker } from './actions/workerFx.js';
 import { boardColors } from '../../../Styling/colors.js';
+import { getId } from './actions/idGenerator.js';
 import { useEffect, useState } from 'react';
-import Worker from './Worker';
+import Worker from './Worker.js';
 
 export default function Player(props) {
   let { team } = props

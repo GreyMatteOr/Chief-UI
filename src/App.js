@@ -1,4 +1,4 @@
-import { addWorker, removeWorker, toggleBlip } from './Components/Pages/Game/workerFx.js';
+import { addWorker, removeWorker, toggleBlip } from './Components/Pages/Game/actions/workerFx.js';
 
 import Board from './Components/Pages/Game/Board.js'
 import Zone from './Components/Pages/Game/Zone.js'

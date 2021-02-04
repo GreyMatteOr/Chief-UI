@@ -1,26 +1,35 @@
-import { createRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { emptyZone, fillZone } from './actions/zoneFx.js';
+import { getId } from './actions/idGenerator.js';
 import Worker from './Worker.js';
 
 export default function Zone(props) {
   let {left, team, top, type} = props
-  let [ref] = useState( createRef() )
-  let [bottom, setBottom] = useState( null )
-  let [right, setRight] = useState( null )
-
-  useEffect( () => {
-    if ( ref.current ) {
-      let { offsetWidth, offsetHeight } = ref.current
-      setRight( offsetWidth + left );
-      setBottom( top + offsetHeight );
-      console.log( left, top, bottom, right)
-    }
-  }, [ref])
+  let [ id ] = useState( getId() )
+  let [ isFull, setIsFull ] = useState( false )
 
   let components = {
     'Worker': Worker
   }
-
   let Receives = components[ type ]
 
-  return <Receives isZone={true} left={left} team={team} top={top} />
+  useEffect( () => {
+    emptyZone[ id ] = () => setIsFull( false )
+    fillZone[ id ] = () => setIsFull( true )
+    return () => {
+      delete emptyZone[ id ]
+      delete emptyZone[ id ]
+    }
+  }, [] )
+
+  return (
+    <Receives
+      id={id}
+      isFull={isFull}
+      isZone={true}
+      left={left}
+      team={team}
+      top={top}
+    />
+  )
 }
