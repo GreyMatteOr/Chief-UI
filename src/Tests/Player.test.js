@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { act } from 'react-dom/test-utils';
-import { addWorker, removeWorker } from '../Components/Pages/Game/workerFx.js';
+import { addWorker, removeWorker } from '../Components/Pages/Game/actions/workerFx.js';
 import { render, screen } from '@testing-library/react';
 import Player from '../Components/Pages/Game/Player.js';
 import { boardColors } from '../Styling/colors.js';

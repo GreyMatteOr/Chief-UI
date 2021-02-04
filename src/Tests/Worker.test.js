@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { act } from 'react-dom/test-utils';
 import { render, screen } from '@testing-library/react';
-import { toggleBlip } from '../Components/Pages/Game/workerFx.js';
+import { toggleBlip } from '../Components/Pages/Game/actions/workerFx.js';
 import Worker from '../Components/Pages/Game/Worker.js';
 import { workerColors } from '../Styling/colors.js';
 
