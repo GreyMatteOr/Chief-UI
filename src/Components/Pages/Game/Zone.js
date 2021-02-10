@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { emptyZone, fillZone } from './actions/zoneFx.js';
 import { getId } from './actions/idGenerator.js';
-import Worker from './Worker.js';
+import { PlayerActionZone, WorkerZone } from './Zones';
+
 
 export default function Zone(props) {
   let {left, team, top, type} = props
@@ -9,7 +10,8 @@ export default function Zone(props) {
   let [ isFull, setIsFull ] = useState( false )
 
   let components = {
-    'Worker': Worker
+    'PlayerActionZone': PlayerActionZone,
+    'Worker': WorkerZone
   }
   let Receives = components[ type ]
 
@@ -20,7 +22,7 @@ export default function Zone(props) {
       delete emptyZone[ id ]
       delete emptyZone[ id ]
     }
-  }, [] )
+  }, [id] )
 
   return (
     <Receives

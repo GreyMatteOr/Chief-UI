@@ -1,4 +1,4 @@
-import { disableMove, enableMove } from './workerFx.js'
+import { disableMove } from './workerFx.js'
 
 export const emptyZone = {}
 export const fillZone = {}
